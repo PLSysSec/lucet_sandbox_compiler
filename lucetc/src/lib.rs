@@ -186,6 +186,7 @@ impl Lucetc {
             opt_level: OptLevel::default(),
             heap: HeapSettings::default(),
             builtins_paths: vec![],
+            writable_tables: false,
         })
     }
 
