@@ -21,9 +21,17 @@ pub struct TableElement {
 }
 
 impl TableElement {
-    pub fn set_element(&mut self, new_ty : u64, new_rf : u64) {
+    pub fn set_element(&mut self, new_ty: u64, new_rf: u64) {
         self.ty = new_ty;
         self.rf = new_rf;
+    }
+
+    pub fn ty(&self) -> u64 {
+        self.ty
+    }
+
+    pub fn rf(&self) -> u64 {
+        self.rf
     }
 }
 
