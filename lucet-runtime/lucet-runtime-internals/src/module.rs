@@ -14,7 +14,7 @@ use crate::error::Error;
 use libc::c_void;
 
 #[repr(C)]
-#[derive(Clone, Debug, Default)]
+#[derive(Clone, Debug)]
 pub struct TableElement {
     ty: u64,
     rf: u64,
