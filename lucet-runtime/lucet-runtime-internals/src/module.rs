@@ -14,16 +14,24 @@ use crate::error::Error;
 use libc::c_void;
 
 #[repr(C)]
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Default)]
 pub struct TableElement {
     ty: u64,
     rf: u64,
 }
 
 impl TableElement {
-    pub fn set_element(&mut self, new_ty : u64, new_rf : u64) {
+    pub fn set_element(&mut self, new_ty: u64, new_rf: u64) {
         self.ty = new_ty;
         self.rf = new_rf;
+    }
+
+    pub fn ty(&self) -> u64 {
+        self.ty
+    }
+
+    pub fn rf(&self) -> u64 {
+        self.rf
     }
 }
 
