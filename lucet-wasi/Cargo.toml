@@ -26,7 +26,7 @@ update-bindings = ["bindgen"]
 [dependencies]
 cast = "0.2"
 failure = "0.1"
-libc = "=0.2.59"
+libc = "0.2.59"
 lucet-runtime = { path = "../lucet-runtime", version = "0.1.1" }
 lucet-runtime-internals = { path = "../lucet-runtime/lucet-runtime-internals", version = "0.1.1" }
 lucet-module = { path = "../lucet-module", version = "0.1.1" }
