@@ -13,5 +13,5 @@ npm run asbuild:optimized
 lucetc build/optimized.wasm -o app \
   --bindings /opt/lucet/share/assemblyscript/modules/wasa/bindings.json
 
-lucet-wasi ./app
+lucet-wasi-wasmsbx ./app
 ```

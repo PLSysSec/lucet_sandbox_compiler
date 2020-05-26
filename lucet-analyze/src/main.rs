@@ -1,6 +1,6 @@
 #![deny(bare_trait_objects)]
 
-use lucet_module::{
+use lucet_module_wasmsbx::{
     FunctionSpec, Module, ModuleData, SerializedModule, TableElement, TrapManifest, TrapSite,
 };
 

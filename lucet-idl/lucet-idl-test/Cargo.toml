@@ -14,8 +14,8 @@ path = "src/main.rs"
 [dependencies]
 lucet-idl = { path = "../" }
 lucetc = { path = "../../lucetc" }
-lucet-runtime = { path = "../../lucet-runtime" }
-lucet-wasi = { path = "../../lucet-wasi" }
+lucet-runtime-wasmsbx = { path = "../../lucet-runtime-wasmsbx" }
+lucet-wasi-wasmsbx = { path = "../../lucet-wasi-wasmsbx" }
 lucet-wasi-sdk = { path = "../../lucet-wasi-sdk" }
 proptest = "0.9.6"
 tempfile = "3.0"

@@ -1,7 +1,7 @@
-use lucet_module::lucet_signature;
-use lucet_runtime::lucet_hostcalls;
-use lucet_runtime::vmctx::{lucet_vmctx, Vmctx};
-use lucet_runtime_internals::module::{
+use lucet_module_wasmsbx::lucet_signature;
+use lucet_runtime_wasmsbx::lucet_hostcalls;
+use lucet_runtime_wasmsbx::vmctx::{lucet_vmctx, Vmctx};
+use lucet_runtime_internals_wasmsbx::module::{
     FunctionPointer, HeapSpec, MockExportBuilder, MockModuleBuilder, Module,
 };
 use lucet_wasi_sdk::{CompileOpts, Lucetc};
@@ -10,7 +10,7 @@ use std::path::Path;
 use std::sync::Arc;
 
 fn wasi_bindings() -> Bindings {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../lucet-wasi/bindings.json");
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("../../lucet-wasi-wasmsbx/bindings.json");
     Bindings::from_file(&path).unwrap()
 }
 

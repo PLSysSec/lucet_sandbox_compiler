@@ -15,9 +15,9 @@ use cranelift_wasm::{
     TableIndex,
 };
 use failure::{format_err, Error, ResultExt};
-use lucet_module::bindings::Bindings;
-use lucet_module::ModuleFeatures;
-use lucet_module::{
+use lucet_module_wasmsbx::bindings::Bindings;
+use lucet_module_wasmsbx::ModuleFeatures;
+use lucet_module_wasmsbx::{
     owned::OwnedLinearMemorySpec, ExportFunction, FunctionIndex as LucetFunctionIndex,
     FunctionMetadata, Global as GlobalVariant, GlobalDef, GlobalSpec, HeapSpec, ImportFunction,
     ModuleData, Signature as LucetSignature, UniqueSignatureIndex,
@@ -43,7 +43,7 @@ impl<'a> FunctionDecl<'a> {
 }
 
 #[derive(Debug)]
-/// Function provided by lucet-runtime to be called from generated code, e.g. memory size & grow
+/// Function provided by lucet-runtime-wasmsbx to be called from generated code, e.g. memory size & grow
 /// functions.
 pub struct RuntimeDecl<'a> {
     signature: &'a ir::Signature,

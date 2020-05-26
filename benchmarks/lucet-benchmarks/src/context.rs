@@ -1,5 +1,5 @@
 use criterion::Criterion;
-use lucet_runtime_internals::context::{Context, ContextHandle};
+use lucet_runtime_internals_wasmsbx::context::{Context, ContextHandle};
 
 /// Time the initialization of a context.
 fn context_init(c: &mut Criterion) {

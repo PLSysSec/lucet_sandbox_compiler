@@ -61,7 +61,7 @@ impl RustGenerator {
             self.host_trait_definition(&module)?;
 
             self.w
-                .writeln("use lucet_runtime::{lucet_hostcalls, lucet_hostcall_terminate};");
+                .writeln("use lucet_runtime_wasmsbx::{lucet_hostcalls, lucet_hostcall_terminate};");
             self.w.writeln("lucet_hostcalls! {").indent();
             for func in module.functions() {
                 self.host_abi_definition(&func)?;

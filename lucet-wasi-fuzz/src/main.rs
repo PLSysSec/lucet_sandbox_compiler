@@ -2,10 +2,10 @@
 
 use failure::{bail, ensure, format_err, Error};
 use libc::c_ulong;
-use lucet_module::bindings::Bindings;
-use lucet_runtime::{DlModule, Limits, MmapRegion, Module, Region};
-use lucet_wasi::host::__wasi_exitcode_t;
-use lucet_wasi::{WasiCtx, WasiCtxBuilder};
+use lucet_module_wasmsbx::bindings::Bindings;
+use lucet_runtime_wasmsbx::{DlModule, Limits, MmapRegion, Module, Region};
+use lucet_wasi_wasmsbx::host::__wasi_exitcode_t;
+use lucet_wasi_wasmsbx::{WasiCtx, WasiCtxBuilder};
 use lucet_wasi_sdk::{CompileOpts, Link};
 use lucetc::{Lucetc, LucetcOpts};
 use rand::prelude::random;
@@ -51,8 +51,8 @@ enum Config {
 }
 
 fn main() {
-    lucet_runtime::lucet_internal_ensure_linked();
-    lucet_wasi::hostcalls::ensure_linked();
+    lucet_runtime_wasmsbx::lucet_internal_ensure_linked();
+    lucet_wasi_wasmsbx::hostcalls::ensure_linked();
 
     match Config::from_args() {
         Config::Fuzz { num_tests } => run_many(num_tests),
@@ -396,8 +396,8 @@ fn run<P: AsRef<Path>>(
     match inst.run("_start", &[]) {
         // normal termination implies 0 exit code
         Ok(_) => Ok(0),
-        Err(lucet_runtime::Error::RuntimeTerminated(
-            lucet_runtime::TerminationDetails::Provided(any),
+        Err(lucet_runtime_wasmsbx::Error::RuntimeTerminated(
+            lucet_runtime_wasmsbx::TerminationDetails::Provided(any),
         )) => Ok(*any
             .downcast_ref::<__wasi_exitcode_t>()
             .expect("termination yields an exitcode")),
@@ -416,7 +416,7 @@ fn wasi_test<P: AsRef<Path>>(tmpdir: &TempDir, c_file: P) -> Result<Arc<dyn Modu
         Path::new(LUCET_WASI_FUZZ_ROOT)
             .parent()
             .unwrap()
-            .join("lucet-wasi")
+            .join("lucet-wasi-wasmsbx")
             .join("bindings.json"),
     )?;
 

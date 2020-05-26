@@ -1,6 +1,6 @@
 use crate::modules::{compile_hello, fib_mock, null_mock};
 use criterion::Criterion;
-use lucet_runtime::{DlModule, InstanceHandle, Limits, Module, Region, RegionCreate};
+use lucet_runtime_wasmsbx::{DlModule, InstanceHandle, Limits, Module, Region, RegionCreate};
 use lucetc::OptLevel;
 use rayon::prelude::*;
 use std::sync::Arc;

@@ -32,7 +32,7 @@ lucetc -o example \
 ## Running the example using lucet-wasi
 
 ```sh
-lucet-wasi --entrypoint main --dir .:. example help
+lucet-wasi-wasmsbx --entrypoint main --dir .:. example help
 ```
 
 Unlike C and Rust applications, AssemblyScript requires an entry point to be explicitly defined.
@@ -55,7 +55,7 @@ The main code is in `assembly/index.ts`.
 Key pair creation:
 
 ```sh
-lucet-wasi --entrypoint main --dir .:. example keypair
+lucet-wasi-wasmsbx --entrypoint main --dir .:. example keypair
 ```
 
 ```text
@@ -73,7 +73,7 @@ The WASA wrapper automatically sets the minimum required WASI capabilities in or
 File signature:
 
 ```sh
-lucet-wasi --entrypoint main --dir .:. example sign README.md
+lucet-wasi-wasmsbx --entrypoint main --dir .:. example sign README.md
 ```
 
 ```text
@@ -85,7 +85,7 @@ This command reads the `README.md` file, as well as the key pair, and computes a
 Signature verification:
 
 ```sh
-lucet-wasi --entrypoint main --dir .:. example verify README.md <public key> <signature>
+lucet-wasi-wasmsbx --entrypoint main --dir .:. example verify README.md <public key> <signature>
 ```
 
 `<public key>` and `<signature>` must be replaced with output from the previous commands.

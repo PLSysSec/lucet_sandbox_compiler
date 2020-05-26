@@ -1,6 +1,6 @@
 use cranelift_codegen::ir;
-use lucet_module::Signature;
-use lucet_module::ValueType;
+use lucet_module_wasmsbx::Signature;
+use lucet_module_wasmsbx::ValueType;
 
 #[derive(Debug)]
 pub enum ValueError {

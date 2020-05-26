@@ -1,6 +1,6 @@
 use crate::bindings;
 use failure::{format_err, Error, Fail};
-use lucet_runtime::{self, MmapRegion, Module as LucetModule, Region, UntypedRetVal, Val};
+use lucet_runtime_wasmsbx::{self, MmapRegion, Module as LucetModule, Region, UntypedRetVal, Val};
 use lucetc::{Compiler, CpuFeatures, HeapSettings, LucetcError, LucetcErrorKind, OptLevel};
 use std::io;
 use std::process::Command;
@@ -18,11 +18,11 @@ pub enum ScriptError {
     #[fail(display = "Codegen error: {}", _0)]
     CodegenError(Error),
     #[fail(display = "Load error: {}", _0)]
-    LoadError(lucet_runtime::Error),
+    LoadError(lucet_runtime_wasmsbx::Error),
     #[fail(display = "Instaitiation error: {}", _0)]
-    InstantiateError(lucet_runtime::Error),
+    InstantiateError(lucet_runtime_wasmsbx::Error),
     #[fail(display = "Runtime error: {}", _0)]
-    RuntimeError(lucet_runtime::Error),
+    RuntimeError(lucet_runtime_wasmsbx::Error),
     #[fail(display = "Malformed script: {}", _0)]
     MalformedScript(String),
     #[fail(display = "IO error: {}", _0)]
@@ -50,7 +50,7 @@ impl From<io::Error> for ScriptError {
 }
 
 pub struct ScriptEnv {
-    instances: Vec<(Option<String>, lucet_runtime::InstanceHandle)>,
+    instances: Vec<(Option<String>, lucet_runtime_wasmsbx::InstanceHandle)>,
 }
 
 fn program_error(e: LucetcError) -> ScriptError {
@@ -104,13 +104,13 @@ impl ScriptEnv {
         }
 
         let lucet_module: Arc<dyn LucetModule> =
-            lucet_runtime::DlModule::load(sofile_path).map_err(ScriptError::LoadError)?;
+            lucet_runtime_wasmsbx::DlModule::load(sofile_path).map_err(ScriptError::LoadError)?;
 
         let lucet_region = MmapRegion::create(
             1,
-            &lucet_runtime::Limits {
+            &lucet_runtime_wasmsbx::Limits {
                 heap_memory_size: 4 * 1024 * 1024 * 1024,
-                ..lucet_runtime::Limits::default()
+                ..lucet_runtime_wasmsbx::Limits::default()
             },
         )
         .expect("valid region");
@@ -126,7 +126,7 @@ impl ScriptEnv {
     fn instance_named_mut(
         &mut self,
         name: &Option<String>,
-    ) -> Result<&mut (Option<String>, lucet_runtime::InstanceHandle), ScriptError> {
+    ) -> Result<&mut (Option<String>, lucet_runtime_wasmsbx::InstanceHandle), ScriptError> {
         Ok(match name {
             // None means the last defined module should be used
             None => self
@@ -144,7 +144,7 @@ impl ScriptEnv {
     pub fn instance_named(
         &self,
         name: &Option<String>,
-    ) -> Result<&lucet_runtime::InstanceHandle, ScriptError> {
+    ) -> Result<&lucet_runtime_wasmsbx::InstanceHandle, ScriptError> {
         Ok(match name {
             // None means the last defined module should be used
             None => self

@@ -18,8 +18,8 @@ path = "src/main.rs"
 
 [dependencies]
 lucetc = { path = "../lucetc", version = "0.1.1" }
-lucet-module = { path = "../lucet-module", version = "0.1.1" }
-lucet-runtime = { path = "../lucet-runtime", version = "0.1.1" }
+lucet-module-wasmsbx = { path = "../lucet-module-wasmsbx", version = "0.1.1" }
+lucet-runtime-wasmsbx = { path = "../lucet-runtime-wasmsbx", version = "0.1.1" }
 wabt = "0.7"
 serde = "1.0"
 serde_json = "1.0"

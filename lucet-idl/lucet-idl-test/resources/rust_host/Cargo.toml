@@ -10,8 +10,8 @@ path = "src/main.rs"
 
 [dependencies]
 lucet-idl = { path = "../../../" }
-lucet-runtime = { path = "../../../../lucet-runtime" }
-lucet-wasi = { path = "../../../../lucet-wasi" }
+lucet-runtime-wasmsbx = { path = "../../../../lucet-runtime-wasmsbx" }
+lucet-wasi-wasmsbx = { path = "../../../../lucet-wasi-wasmsbx" }
 failure = "0.1"
 log = "0.4"
 env_logger = "0.6"

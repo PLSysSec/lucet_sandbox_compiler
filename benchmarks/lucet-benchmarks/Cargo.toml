@@ -12,10 +12,10 @@ edition = "2018"
 [dependencies]
 criterion = "0.2"
 lucetc = { path = "../../lucetc" }
-lucet-module = { path = "../../lucet-module" }
-lucet-runtime = { path = "../../lucet-runtime" }
-lucet-runtime-internals = { path = "../../lucet-runtime/lucet-runtime-internals" }
-lucet-wasi = { path = "../../lucet-wasi" }
+lucet-module-wasmsbx = { path = "../../lucet-module-wasmsbx" }
+lucet-runtime-wasmsbx = { path = "../../lucet-runtime-wasmsbx" }
+lucet-runtime-internals-wasmsbx = { path = "../../lucet-runtime-wasmsbx/lucet-runtime-internals-wasmsbx" }
+lucet-wasi-wasmsbx = { path = "../../lucet-wasi-wasmsbx" }
 lucet-wasi-sdk = { path = "../../lucet-wasi-sdk" }
 nix = "0.13"
 num_cpus = "1.0"

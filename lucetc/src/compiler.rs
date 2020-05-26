@@ -20,8 +20,8 @@ use cranelift_faerie::{FaerieBackend, FaerieBuilder, FaerieTrapCollection};
 use cranelift_module::{Backend as ClifBackend, Module as ClifModule};
 use cranelift_wasm::{translate_module, FuncTranslator, WasmError};
 use failure::{format_err, Fail, ResultExt};
-use lucet_module::bindings::Bindings;
-use lucet_module::{FunctionSpec, ModuleData, ModuleFeatures, MODULE_DATA_SYM};
+use lucet_module_wasmsbx::bindings::Bindings;
+use lucet_module_wasmsbx::{FunctionSpec, ModuleData, ModuleFeatures, MODULE_DATA_SYM};
 use target_lexicon::Triple;
 
 #[derive(Debug, Clone, Copy)]

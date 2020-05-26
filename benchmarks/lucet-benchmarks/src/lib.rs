@@ -11,6 +11,6 @@ pub use seq::seq_benches;
 
 #[no_mangle]
 extern "C" fn lucet_benchmarks_ensure_linked() {
-    lucet_runtime::lucet_internal_ensure_linked();
-    lucet_wasi::hostcalls::ensure_linked();
+    lucet_runtime_wasmsbx::lucet_internal_ensure_linked();
+    lucet_wasi_wasmsbx::hostcalls::ensure_linked();
 }

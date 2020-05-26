@@ -9,7 +9,7 @@ use cranelift_wasm::{
     TableElementType, TableIndex, WasmResult,
 };
 use failure::ResultExt;
-use lucet_module::UniqueSignatureIndex;
+use lucet_module_wasmsbx::UniqueSignatureIndex;
 use std::collections::{hash_map::Entry, HashMap};
 
 /// UniqueFuncIndex names a function after merging duplicate function declarations to a single

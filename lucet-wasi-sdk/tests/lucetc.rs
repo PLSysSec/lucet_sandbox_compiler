@@ -1,7 +1,7 @@
 #[cfg(test)]
 mod lucetc_tests {
     use failure::Error;
-    use lucet_module::bindings::Bindings;
+    use lucet_module_wasmsbx::bindings::Bindings;
     use lucet_wasi_sdk::*;
     use lucetc::{Compiler, CpuFeatures, HeapSettings, OptLevel};
     use std::collections::HashMap;

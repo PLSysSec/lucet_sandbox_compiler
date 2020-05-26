@@ -1,6 +1,6 @@
 use criterion::Criterion;
 use lucet_benchmarks::*;
-use lucet_runtime::MmapRegion;
+use lucet_runtime_wasmsbx::MmapRegion;
 
 fn main() {
     let mut c = Criterion::default().configure_from_args();

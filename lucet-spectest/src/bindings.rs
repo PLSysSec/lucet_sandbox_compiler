@@ -1,7 +1,7 @@
-use lucet_module::bindings::Bindings;
+use lucet_module_wasmsbx::bindings::Bindings;
 use serde_json::json;
 
-use lucet_runtime::lucet_hostcalls;
+use lucet_runtime_wasmsbx::lucet_hostcalls;
 
 lucet_hostcalls! {
     #[no_mangle]

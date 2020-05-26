@@ -38,7 +38,7 @@ else
     DYLIB_SUFFIX="so"
 fi
 
-BINS="lucet-analyze lucet-wasi lucetc sightglass spec-test wasmonkey"
+BINS="lucet-analyze lucet-wasi-wasmsbx lucetc sightglass spec-test wasmonkey"
 LIBS="liblucet_runtime.${DYLIB_SUFFIX}"
 DOCS="lucet-wasi/README.md sightglass/README.md"
 BUNDLE_DOCS="README.md"
@@ -170,8 +170,8 @@ rm -f "$devenv_setenv_file"
 install -d -v "${LUCET_EXAMPLES_DIR}/sightglass" || exit 1
 install -p -v -m 0644 "${LUCET_SRC_PREFIX}/sightglass/sightglass.toml" "${LUCET_EXAMPLES_DIR}/sightglass/sightglass.toml"
 
-install -d -v "${LUCET_SHARE_DIR}/lucet-wasi" || exit 1
-install -p -v -m 0644 "${LUCET_SRC_PREFIX}/lucet-wasi/bindings.json" "${LUCET_SHARE_DIR}/lucet-wasi/bindings.json"
+install -d -v "${LUCET_SHARE_DIR}/lucet-wasi-wasmsbx" || exit 1
+install -p -v -m 0644 "${LUCET_SRC_PREFIX}/lucet-wasi-wasmsbx/bindings.json" "${LUCET_SHARE_DIR}/lucet-wasi-wasmsbx/bindings.json"
 
 for doc in $DOCS; do
     install -d -v "${LUCET_DOC_DIR}/$(dirname $doc)" || exit 1
@@ -209,7 +209,7 @@ wrapper_file="$(mktemp)"
 cat >"$wrapper_file" <<EOT
 #! /bin/sh
 
-exec "${LUCET_BIN_DIR}/lucetc" "\$@" --bindings "${LUCET_SHARE_DIR}/lucet-wasi/bindings.json"
+exec "${LUCET_BIN_DIR}/lucetc" "\$@" --bindings "${LUCET_SHARE_DIR}/lucet-wasi-wasmsbx/bindings.json"
 EOT
 install -p -v "$wrapper_file" "${LUCET_BIN_DIR}/lucetc-wasi"
 rm -f "$wrapper_file"

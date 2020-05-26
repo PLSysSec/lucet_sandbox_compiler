@@ -1,12 +1,12 @@
 use crate::{harness, idl};
 use failure::Error;
-use lucet_runtime::{DlModule, Limits, MmapRegion, Module, Region};
-use lucet_wasi::{self, WasiCtxBuilder};
+use lucet_runtime_wasmsbx::{DlModule, Limits, MmapRegion, Module, Region};
+use lucet_wasi_wasmsbx::{self, WasiCtxBuilder};
 use std::path::PathBuf;
 use std::sync::Arc;
 
 pub fn run(module_path: PathBuf) -> Result<(), Error> {
-    lucet_wasi::hostcalls::ensure_linked();
+    lucet_wasi_wasmsbx::hostcalls::ensure_linked();
     idl::ensure_linked();
 
     let module = DlModule::load(&module_path)?;

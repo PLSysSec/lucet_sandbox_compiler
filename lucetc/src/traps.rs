@@ -3,7 +3,7 @@ use cranelift_faerie::traps::FaerieTrapManifest;
 
 use faerie::{Artifact, Decl};
 use failure::{Error, ResultExt};
-use lucet_module::TrapSite;
+use lucet_module_wasmsbx::TrapSite;
 
 pub fn write_trap_tables(manifest: &FaerieTrapManifest, obj: &mut Artifact) -> Result<(), Error> {
     for sink in manifest.sinks.iter() {
@@ -49,19 +49,19 @@ pub(crate) fn trap_sym_for_func(sym: &str) -> String {
 //
 // Not all types have subtypes. Currently, only the user User type has a
 // subtype.
-fn translate_trapcode(code: ir::TrapCode) -> lucet_module::TrapCode {
+fn translate_trapcode(code: ir::TrapCode) -> lucet_module_wasmsbx::TrapCode {
     match code {
-        ir::TrapCode::StackOverflow => lucet_module::TrapCode::StackOverflow,
-        ir::TrapCode::HeapOutOfBounds => lucet_module::TrapCode::HeapOutOfBounds,
-        ir::TrapCode::OutOfBounds => lucet_module::TrapCode::OutOfBounds,
-        ir::TrapCode::IndirectCallToNull => lucet_module::TrapCode::IndirectCallToNull,
-        ir::TrapCode::BadSignature => lucet_module::TrapCode::BadSignature,
-        ir::TrapCode::IntegerOverflow => lucet_module::TrapCode::IntegerOverflow,
-        ir::TrapCode::IntegerDivisionByZero => lucet_module::TrapCode::IntegerDivByZero,
-        ir::TrapCode::BadConversionToInteger => lucet_module::TrapCode::BadConversionToInteger,
-        ir::TrapCode::Interrupt => lucet_module::TrapCode::Interrupt,
-        ir::TrapCode::TableOutOfBounds => lucet_module::TrapCode::TableOutOfBounds,
-        ir::TrapCode::UnreachableCodeReached => lucet_module::TrapCode::Unreachable,
+        ir::TrapCode::StackOverflow => lucet_module_wasmsbx::TrapCode::StackOverflow,
+        ir::TrapCode::HeapOutOfBounds => lucet_module_wasmsbx::TrapCode::HeapOutOfBounds,
+        ir::TrapCode::OutOfBounds => lucet_module_wasmsbx::TrapCode::OutOfBounds,
+        ir::TrapCode::IndirectCallToNull => lucet_module_wasmsbx::TrapCode::IndirectCallToNull,
+        ir::TrapCode::BadSignature => lucet_module_wasmsbx::TrapCode::BadSignature,
+        ir::TrapCode::IntegerOverflow => lucet_module_wasmsbx::TrapCode::IntegerOverflow,
+        ir::TrapCode::IntegerDivisionByZero => lucet_module_wasmsbx::TrapCode::IntegerDivByZero,
+        ir::TrapCode::BadConversionToInteger => lucet_module_wasmsbx::TrapCode::BadConversionToInteger,
+        ir::TrapCode::Interrupt => lucet_module_wasmsbx::TrapCode::Interrupt,
+        ir::TrapCode::TableOutOfBounds => lucet_module_wasmsbx::TrapCode::TableOutOfBounds,
+        ir::TrapCode::UnreachableCodeReached => lucet_module_wasmsbx::TrapCode::Unreachable,
         ir::TrapCode::User(_) => panic!("we should never emit a user trapcode"),
     }
 }

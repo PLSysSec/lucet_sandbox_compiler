@@ -23,13 +23,13 @@ install-dev: build-dev
 .PHONY: test
 test: indent-check
 	cargo test --no-fail-fast \
-            -p lucet-runtime-internals \
-            -p lucet-runtime \
-            -p lucet-module \
+            -p lucet-runtime-internals-wasmsbx \
+            -p lucet-runtime-wasmsbx \
+            -p lucet-module-wasmsbx \
             -p lucetc \
             -p lucet-idl \
             -p lucet-wasi-sdk \
-            -p lucet-wasi \
+            -p lucet-wasi-wasmsbx \
             -p lucet-benchmarks
     # run a single seed through the fuzzer to stave off bitrot
 	cargo run -p lucet-wasi-fuzz -- test-seed 410757864950
@@ -66,11 +66,11 @@ indent-check:
 .PHONY: watch
 watch:
 	cargo watch --exec "test \
-            -p lucet-runtime-internals \
-            -p lucet-runtime \
-            -p lucet-module \
+            -p lucet-runtime-internals-wasmsbx \
+            -p lucet-runtime-wasmsbx \
+            -p lucet-module-wasmsbx \
             -p lucetc \
             -p lucet-idl \
             -p lucet-wasi-sdk \
-            -p lucet-wasi \
+            -p lucet-wasi-wasmsbx \
             -p lucet-benchmarks"

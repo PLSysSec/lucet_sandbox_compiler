@@ -2,7 +2,7 @@ use crate::workspace::Workspace;
 use crate::ModuleTestPlan;
 use failure::{format_err, Error};
 use lucet_idl::{self, pretty_writer::PrettyWriter, Backend, Config, Package};
-use lucet_wasi;
+use lucet_wasi_wasmsbx;
 use lucetc::{Lucetc, LucetcOpts};
 use std::fs::File;
 use std::path::PathBuf;
@@ -66,7 +66,7 @@ impl RustGuestApp {
         self.generate_idl_rs(package)?;
         self.generate_main_rs(test_plan)?;
         self.rustc()?;
-        let mut bindings = lucet_wasi::bindings();
+        let mut bindings = lucet_wasi_wasmsbx::bindings();
         bindings.extend(&package.bindings())?;
         let lucetc = Lucetc::new(self.work.output_path("out.wasm")).with_bindings(bindings);
         let so_file = self.work.output_path("out.so");

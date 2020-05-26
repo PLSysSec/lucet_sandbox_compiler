@@ -12,6 +12,6 @@ edition = "2018"
 [dependencies]
 failure = "0.1"
 lucetc = { path = "../lucetc", version = "0.1.1" }
-lucet-module = { path = "../lucet-module", version = "0.1.1" }
+lucet-module-wasmsbx = { path = "../lucet-module-wasmsbx", version = "0.1.1" }
 target-lexicon = "0.8.1"
 tempfile = "3.0"

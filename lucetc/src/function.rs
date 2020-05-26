@@ -11,7 +11,7 @@ use cranelift_wasm::{
     FuncEnvironment, FuncIndex, GlobalIndex, GlobalVariable, MemoryIndex, SignatureIndex,
     TableIndex, VisibleTranslationState, WasmError, WasmResult,
 };
-use lucet_module::InstanceRuntimeData;
+use lucet_module_wasmsbx::InstanceRuntimeData;
 use memoffset::offset_of;
 use std::collections::HashMap;
 use wasmparser::Operator;

@@ -12,12 +12,12 @@ else
     exit 1
 fi
 
-if [ -x "${LUCET_DIR}/target/release/lucet-wasi" ]; then
-    LUCET_WASI="${LUCET_DIR}/target/release/lucet-wasi"
-elif [ -x "${LUCET_DIR}/target/debug/lucet-wasi" ]; then
-    LUCET_WASI="${LUCET_DIR}/target/debug/lucet-wasi"
+if [ -x "${LUCET_DIR}/target/release/lucet-wasi-wasmsbx" ]; then
+    LUCET_WASI="${LUCET_DIR}/target/release/lucet-wasi-wasmsbx"
+elif [ -x "${LUCET_DIR}/target/debug/lucet-wasi-wasmsbx" ]; then
+    LUCET_WASI="${LUCET_DIR}/target/debug/lucet-wasi-wasmsbx"
 else
-    echo "lucet-wasi not found" >&2
+    echo "lucet-wasi-wasmsbx not found" >&2
     exit 1
 fi
 

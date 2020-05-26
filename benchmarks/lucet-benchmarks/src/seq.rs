@@ -1,7 +1,7 @@
 use crate::modules::*;
 use criterion::Criterion;
-use lucet_runtime::{DlModule, InstanceHandle, Limits, Module, Region, RegionCreate};
-use lucet_wasi::WasiCtxBuilder;
+use lucet_runtime_wasmsbx::{DlModule, InstanceHandle, Limits, Module, Region, RegionCreate};
+use lucet_wasi_wasmsbx::WasiCtxBuilder;
 use lucetc::OptLevel;
 use std::path::Path;
 use std::sync::Arc;

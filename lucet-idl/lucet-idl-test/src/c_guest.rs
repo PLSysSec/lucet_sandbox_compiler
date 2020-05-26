@@ -1,7 +1,7 @@
 use crate::workspace::Workspace;
 use failure::Error;
 use lucet_idl::{self, Backend, Config, Package};
-use lucet_wasi;
+use lucet_wasi_wasmsbx;
 use lucet_wasi_sdk::{CompileOpts, Link};
 use lucetc::{Lucetc, LucetcOpts};
 use std::fs::File;
@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) {
             .with_include(self.work.source_path(""))
             .link(&self.work.output_path("out.wasm"))?;
 
-        let mut bindings = lucet_wasi::bindings();
+        let mut bindings = lucet_wasi_wasmsbx::bindings();
         bindings.extend(&package.bindings())?;
         let lucetc = Lucetc::new(self.work.output_path("out.wasm")).with_bindings(bindings);
         let so_file = self.work.output_path("out.so");

@@ -1,7 +1,7 @@
 use crate::error::{LucetcError, LucetcErrorKind};
 use cranelift_codegen::{isa, settings::Configurable};
 use failure::{format_err, ResultExt};
-use lucet_module::ModuleFeatures;
+use lucet_module_wasmsbx::ModuleFeatures;
 use std::collections::{HashMap, HashSet};
 use target_lexicon::Triple;
 

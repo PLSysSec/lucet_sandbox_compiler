@@ -32,7 +32,7 @@ use crate::c::CGenerator;
 use crate::parser::Parser;
 use crate::rust::RustGenerator;
 use crate::validate::package_from_declarations;
-use lucet_module::bindings::Bindings;
+use lucet_module_wasmsbx::bindings::Bindings;
 use std::collections::HashMap;
 use std::io::Write;
 

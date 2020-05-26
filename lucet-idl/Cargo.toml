@@ -1,7 +1,7 @@
 [package]
 name = "lucet-idl"
 version = "0.1.1"
-description = "Describe interfaces between WebAssembly guest programs and lucet-runtime hosts"
+description = "Describe interfaces between WebAssembly guest programs and lucet-runtime-wasmsbx hosts"
 homepage = "https://github.com/fastly/lucet"
 repository = "https://github.com/fastly/lucet"
 license = "Apache-2.0 WITH LLVM-exception"
@@ -22,7 +22,7 @@ failure = "0.1"
 xfailure = "0.1"
 heck = "0.3"
 lucetc = { path = "../lucetc" }
-lucet-module = { path = "../lucet-module" }
+lucet-module-wasmsbx = { path = "../lucet-module-wasmsbx" }
 cranelift-entity = { path = "../cranelift/cranelift-entity" }
 
 [dev-dependencies]

@@ -1,7 +1,7 @@
 use crate::error::LucetcErrorKind::NoSigningSupport;
 use failure::*;
 #[cfg(feature = "signature_checking")]
-use lucet_module::ModuleSignature;
+use lucet_module_wasmsbx::ModuleSignature;
 pub use minisign::{KeyPair, PublicKey, SecretKey, SignatureBones, SignatureBox};
 use std::fs::File;
 use std::io::{Cursor, Read, Write};
